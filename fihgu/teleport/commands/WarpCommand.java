@@ -47,6 +47,10 @@ public class WarpCommand extends CommandBase
 				
 				if (target != null)
 				{
+					player.sendChatToPlayer(McColor.green + Language.translate("Request sent to ")  + target.username + "!");
+					target.sendChatToPlayer(McColor.aqua + player.username + McColor.pink + Language.translate(" has send you a Warp request!"));
+					target.sendChatToPlayer(McColor.pink + Language.translate("Please accept with /y or deny with /n."));
+					
 					new Request(new Player(target), 30) 
 					{
 						EntityPlayerMP from = sender;
@@ -55,17 +59,28 @@ public class WarpCommand extends CommandBase
 						@Override
 						public void accept()
 						{
+							System.out.println("cool");
 							Teleport.warp(to, WarpPoint.getWarpPoint(dest).location, false);
 							to.sendChatToPlayer(McColor.green + Language.translate("Warped to ") + dest + " by " + McColor.darkRed + from.username);
 							
 							from.sendChatToPlayer(McColor.aqua + to.username + McColor.green + Language.translate(" has accepted your warp request."));
-							from.sendChatToPlayer(McColor.aqua + to.username + McColor.green + Language.translate(" is warpped to ") + McColor.aqua + to.username);
+							from.sendChatToPlayer(McColor.aqua + to.username + McColor.green + Language.translate(" is warpped to ") + McColor.aqua + dest);
+						}
+						@Override
+						public void deny()
+						{
+							to.sendChatToPlayer(McColor.grey + Language.translate("Request warp has been denied."));
+							from.sendChatToPlayer(McColor.aqua + to.username + " : " + McColor.grey + Language.translate("Request warp has been denied."));
 						}
 					};
 				} else {
 					final EntityPlayerMP target2 = PlayerManager.getPossiblePlayer (args[0]);
 					if (target2 != null)
 					{
+						player.sendChatToPlayer(McColor.green + Language.translate("Request sent to ")  + target2.username + "!");
+						target2.sendChatToPlayer(McColor.aqua + player.username + McColor.pink + Language.translate(" has send you a Warp request!"));
+						target2.sendChatToPlayer(McColor.pink + Language.translate("Please accept with /y or deny with /n."));
+						
 						new Request(new Player(target2), 30) 
 						{
 							EntityPlayerMP from = sender;
@@ -78,7 +93,13 @@ public class WarpCommand extends CommandBase
 								to.sendChatToPlayer(McColor.green + Language.translate("Warped to ") + dest + " by " + McColor.darkRed + from.username);
 								
 								from.sendChatToPlayer(McColor.aqua + to.username + McColor.green + Language.translate(" has accepted your warp request."));
-								from.sendChatToPlayer(McColor.aqua + to.username + McColor.green + Language.translate(" is warpped to ") + McColor.aqua + to.username);
+								from.sendChatToPlayer(McColor.aqua + to.username + McColor.green + Language.translate(" is warpped to ") + McColor.aqua + dest);
+							}
+							@Override
+							public void deny()
+							{
+								to.sendChatToPlayer(McColor.grey + Language.translate("Request warp has been denied."));
+								from.sendChatToPlayer(McColor.aqua + to.username + " : " + McColor.grey + Language.translate("Request warp has been denied."));
 							}
 						};
 					} else {

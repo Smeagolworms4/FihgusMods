@@ -84,6 +84,8 @@ public class CommonProxy
 		temp.data.add("warp.*" + allNode + "*");
 		temp.data.add("summon");
 		temp.data.add("summon.*" + allNode + "*");
+		temp.data.add("y");
+		temp.data.add("n");
 		temp.save(false);
 		temp = new SaveFile("Admin.txt","./fihgu/permission/groups/");
 		temp.data.add("*"+ permissionsFromNode + ":Player*");
