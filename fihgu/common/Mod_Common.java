@@ -9,7 +9,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import fihgu.common.commands.FlyCommand;
-import fihgu.common.events.EventLoginHandler;
+import fihgu.common.events.EventFallHandler;
 import fihgu.core.shortcut.Forge;
 
 @Mod(modid="fihgu's Common Mod", name="fihgu's Common Mod", version="3.0.0")
@@ -26,7 +26,7 @@ public class Mod_Common
 	public void serverStarting(FMLServerStartingEvent event)
 	{
 		proxy.init();
-		Forge.registerEventHandler(new EventLoginHandler());
+		Forge.registerEventHandler(new EventFallHandler());
 		FlyCommand.loadConfig ();
 	}
 	
