@@ -55,4 +55,10 @@ public class Teleport
 			return false;
 		}
 	}
+
+	
+	
+	public static void addLocationHistory(EntityPlayerMP player) {
+		playerBackMap.put(player, new Location(player));
+	}
 }

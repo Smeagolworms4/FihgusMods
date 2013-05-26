@@ -124,6 +124,14 @@ public class WarpPoint
 		{
 			this.name = info.substring(0,info.indexOf("("));
 			String locationInfo = info.substring(info.indexOf("(") + 1, info.indexOf(")"));
+			
+			String[] list = locationInfo.split(",");
+			double x = Double.parseDouble(list[0]);
+			double z = Double.parseDouble(list[1]);
+			double y = Double.parseDouble(list[2]);
+			int dimention = Integer.parseInt(list[3]);
+			this.location = new Location(x, z, y, dimention);
+			
 		}
 		catch(Exception e)
 		{

@@ -1,4 +1,4 @@
-package fihgu.protection;
+package fihgu.common;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
@@ -8,29 +8,31 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import fihgu.common.commands.FlyCommand;
+import fihgu.common.events.EventLoginHandler;
 import fihgu.core.shortcut.Forge;
-import fihgu.teleport.death.EventHandler;
 
-@Mod(modid="fihgu's Protection Mod", name="fihgu's Protection Mod", version="3.0.0")
+@Mod(modid="fihgu's Common Mod", name="fihgu's Common Mod", version="3.0.0")
 @NetworkMod(clientSideRequired=false, serverSideRequired=false)
-public class Mod_Protection
+public class Mod_Common 
 {
-	@Instance("fihgu's Protection Mod")
-	public static Mod_Protection instance;
+	@Instance("fihgu's Common Mod")
+	public static Mod_Common instance;
 	
-	@SidedProxy(clientSide="fihgu.protection.ClientProxy", serverSide="fihgu.protection.ServerProxy")
+	@SidedProxy(clientSide="fihgu.common.ClientProxy", serverSide="fihgu.common.ServerProxy")
 	public static CommonProxy proxy;
 	
 	@ServerStarting
 	public void serverStarting(FMLServerStartingEvent event)
 	{
 		proxy.init();
-		Forge.registerEventHandler(new EventHandler());
+		Forge.registerEventHandler(new EventLoginHandler());
+		FlyCommand.loadConfig ();
 	}
 	
 	@ServerStopping
 	public void onServerStopping(FMLServerStoppingEvent e)
 	{
-		proxy.exit();
+		FlyCommand.saveConfig ();
 	}
 }

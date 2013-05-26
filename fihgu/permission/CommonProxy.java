@@ -137,6 +137,16 @@ public class CommonProxy
 		temp.data.add("pardon-ip.*" + allNode  + "*");
 		temp.data.add("whitelist");
 		temp.data.add("whitelist.*" + allNode  + "*");
+		temp.data.add("fly");
+		temp.data.add("fly.*" + allNode  + "*");
+		temp.data.add("day");
+		temp.data.add("day.*" + allNode  + "*");
+		temp.data.add("night");
+		temp.data.add("night.*" + allNode  + "*");
+		temp.data.add("sun");
+		temp.data.add("sun.*" + allNode  + "*");
+		temp.data.add("rain");
+		temp.data.add("rain.*" + allNode  + "*");
 		temp.data.add("op.*"+ commandSenderNode + "*");
 		temp.data.add("deop.*"+ commandSenderNode + "*");
 		temp.save(false);
