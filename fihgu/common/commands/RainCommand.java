@@ -24,7 +24,7 @@ public class RainCommand extends CommandBase
 	@Override
 	public void processPlayer(EntityPlayerMP player, String[] args)
 	{
-		player.sendChatToPlayer("Vous avez programmé la pluie");
+		player.sendChatToPlayer("You have active the rain");
 		WorldInfo info = player.worldObj.getWorldInfo ();
 		info.setRaining(true);
 		info.setThundering(false);

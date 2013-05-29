@@ -19,7 +19,7 @@ public class NightCommand extends CommandBase
 	@Override
 	public void processPlayer(EntityPlayerMP player, String[] args)
 	{
-		player.sendChatToPlayer("Vous avez programmer la nuit");
+		player.sendChatToPlayer("You have active the night");
 		player.worldObj.setWorldTime(13500);
 	}
 }

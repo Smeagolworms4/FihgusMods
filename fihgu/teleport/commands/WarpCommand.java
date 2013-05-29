@@ -103,7 +103,7 @@ public class WarpCommand extends CommandBase
 							}
 						};
 					} else {
-						player.sendChatToPlayer(McColor.red + Language.translate("Le joueur ") + McColor.green + args[0] + McColor.red + Language.translate(" est introuvable."));
+						player.sendChatToPlayer(McColor.red + Language.translate("The player ") + McColor.green + args[0] + McColor.red + Language.translate(" not find."));
 					}
 				}
 				

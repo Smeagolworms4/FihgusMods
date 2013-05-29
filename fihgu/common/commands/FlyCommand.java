@@ -54,13 +54,13 @@ public class FlyCommand extends CommandBase
 			}
 			saveConfig ();
 			
-			player.sendChatToPlayer(McColor.green + Language.translate("Le vol est désactivé"));
+			player.sendChatToPlayer(McColor.green + Language.translate("The fly is enabled"));
 		} else {
 			player.capabilities.allowFlying = true;
 			player.sendPlayerAbilities();
 			_usersFlying.add (player.username);
 			saveConfig ();
-			player.sendChatToPlayer(McColor.green + Language.translate("Le vol est activé"));
+			player.sendChatToPlayer(McColor.green + Language.translate("The fly is disabled"));
 		}
 	}
 	
@@ -81,13 +81,13 @@ public class FlyCommand extends CommandBase
 			if (target != null) {
 				if (target.capabilities.allowFlying) {
 					toggleFlying (target);
-					player.sendChatToPlayer(McColor.green + Language.translate("Le vol est désactivé pour "+args[0]));
+					player.sendChatToPlayer(McColor.green + Language.translate("The fly is disabled for "+args[0]));
 				} else {
 					toggleFlying (target);
-					target.sendChatToPlayer(McColor.green + Language.translate("Le vol est activé"));
+					player.sendChatToPlayer(McColor.green + Language.translate("The fly is enabled for "+args[0]));
 				}
 			} else {
-				player.sendChatToPlayer(McColor.red + Language.translate("Le joueur ") + McColor.green + args[0] + McColor.red + Language.translate(" est introuvable."));
+				player.sendChatToPlayer(McColor.red + Language.translate("the player  ") + McColor.green + args[0] + McColor.red + Language.translate(" not find."));
 			}
 		}
 		

@@ -21,7 +21,7 @@ public class SunCommand extends CommandBase
 	@Override
 	public void processPlayer(EntityPlayerMP player, String[] args)
 	{
-		player.sendChatToPlayer("Vous avez programmé le soleil");
+		player.sendChatToPlayer("You have active the sun");
 		WorldInfo info = player.worldObj.getWorldInfo ();
 		info.setRaining(false);
 		info.setThundering(false);

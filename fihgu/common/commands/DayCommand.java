@@ -18,7 +18,7 @@ public class DayCommand extends CommandBase
 	@Override
 	public void processPlayer(EntityPlayerMP player, String[] args)
 	{
-		player.sendChatToPlayer("Vous avez programmer le jour");
+		player.sendChatToPlayer("You have active the day");
 		player.worldObj.setWorldTime(0);
 	}
 }
